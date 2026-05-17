@@ -1,9 +1,9 @@
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-const BASE = "https://newsapi.org/v2";
+const BASE = "/api/news";
 
 export async function fetchTopHeadlines({ category = "general", page = 1, pageSize = 9 } = {}) {
   const params = new URLSearchParams({
-    country: "us",
+    country: "ke",
     category,
     page,
     pageSize,
