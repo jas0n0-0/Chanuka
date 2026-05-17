@@ -3,7 +3,7 @@ const BASE = "/api/news";
 
 export async function fetchTopHeadlines({ category = "general", page = 1, pageSize = 9 } = {}) {
   const params = new URLSearchParams({
-    country: "ke",
+    country: "us",
     category,
     page,
     pageSize,
