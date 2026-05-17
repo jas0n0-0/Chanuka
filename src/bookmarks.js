@@ -1,38 +1,45 @@
-const BASE = "http://localhost:3001";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp,
+} from "firebase/firestore";
+import { db } from "../firebase";
+
+const COL = "bookmarks";
 
 export async function getBookmarks(userId) {
-  const res = await fetch(`${BASE}/bookmarks?userId=${userId}`);
-  if (!res.ok) throw new Error("Failed to fetch bookmarks");
-  return res.json();
+  const q = query(collection(db, COL), where("userId", "==", userId));
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
 }
 
 export async function addBookmark(userId, article) {
-  // Prevent duplicate: check first
+  // Prevent duplicates
   const existing = await getBookmarks(userId);
   const dupe = existing.find((b) => b.url === article.url);
   if (dupe) return dupe;
 
-  const res = await fetch(`${BASE}/bookmarks`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      userId,
-      url: article.url,
-      title: article.title,
-      description: article.description,
-      urlToImage: article.urlToImage,
-      source: article.source?.name || "Unknown",
-      publishedAt: article.publishedAt,
-      savedAt: new Date().toISOString(),
-    }),
+  const docRef = await addDoc(collection(db, COL), {
+    userId,
+    url: article.url,
+    title: article.title,
+    description: article.description || "",
+    urlToImage: article.urlToImage || "",
+    source: article.source?.name || "Unknown",
+    publishedAt: article.publishedAt || "",
+    savedAt: serverTimestamp(),
   });
-  if (!res.ok) throw new Error("Failed to add bookmark");
-  return res.json();
+
+  return { id: docRef.id, userId, url: article.url, title: article.title };
 }
 
 export async function removeBookmark(bookmarkId) {
-  const res = await fetch(`${BASE}/bookmarks/${bookmarkId}`, { method: "DELETE" });
-  if (!res.ok) throw new Error("Failed to remove bookmark");
+  await deleteDoc(doc(db, COL, bookmarkId));
 }
 
 export async function isBookmarked(userId, articleUrl) {
