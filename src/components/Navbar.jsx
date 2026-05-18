@@ -4,7 +4,6 @@ import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
-import "./Navbar.css";
 
 export default function Navbar() {
   const { user, logout } = useAuth();

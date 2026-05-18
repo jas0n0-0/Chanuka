@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { getBookmarks, removeBookmark } from "../bookmarks";
-import "./Saved.css";
 
 const FALLBACK_IMG = "https://placehold.co/600x400/1a1a1a/ffffff?text=CHANUKA+SAHII";
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { addBookmark, removeBookmark, isBookmarked } from "../bookmarks";
-import "./ArticleCard.css";
 
 const FALLBACK_IMG = "https://placehold.co/600x400/1a1a1a/ffffff?text=CHANUKA+SAHII";
 

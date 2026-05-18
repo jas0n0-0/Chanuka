@@ -8,7 +8,6 @@ import {
 } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
 import { useAuth } from "../context/AuthContext";
-import "./Login.css";
 
 export default function Login() {
   const { user } = useAuth();

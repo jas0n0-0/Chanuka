@@ -7,7 +7,6 @@ import Trending from "./pages/Trending";
 import Saved from "./pages/Saved";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import "./App.css";
 
 export default function App() {
   return (

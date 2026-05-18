@@ -3,7 +3,6 @@ import { useInfiniteNews } from "../useInfiniteNews";
 import { fetchTopHeadlines } from "../news";
 import ArticleCard from "../components/ArticleCard";
 import SkeletonCard from "../components/SkeletonCard";
-import "./Home.css";
 
 const CATEGORIES = [
   { key: "general", label: "All" },

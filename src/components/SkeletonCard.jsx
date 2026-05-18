@@ -1,5 +1,3 @@
-import "./SkeletonCard.css";
-
 export default function SkeletonCard({ count = 6 }) {
   return (
     <>

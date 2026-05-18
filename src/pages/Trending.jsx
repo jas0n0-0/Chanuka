@@ -4,7 +4,6 @@ import { fetchTrending, searchNews } from "../news";
 import ArticleCard from "../components/ArticleCard";
 import SearchBar from "../components/SearchBar";
 import SkeletonCard from "../components/SkeletonCard";
-import "./Trending.css";
 
 export default function Trending() {
   const [query, setQuery] = useState("");
