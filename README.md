@@ -1,18 +1,32 @@
-# React + Vite
+# CHANUKA SAHII
+Chanuka Sahii is a web application that enables people to stay up to date with the current headlines.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TABLE OF CONTENT
+## Installation
+1. Clone the repository
+``` bash
+git@github.com:jas0n0-0/Chanuka.git
+```
+2. Install dependencies
+```bash
+npm install
+```
 
-Currently, two official plugins are available:
+## Usage
+1. Create a .env file 
+2. Go to https://newsapi.org and https://console.firebase.google.com to get your API keys and place them in your .env file
+3. To start the app
+``` bash
+npm run dev
+```
+in another terminal
+``` bash
+npm run server
+``` 
+## Contributing
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes.
+4. Push your branch: `git push origin feature-name`.
+5. Create a pull request.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
